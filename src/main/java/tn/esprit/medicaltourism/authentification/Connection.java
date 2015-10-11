@@ -10,10 +10,12 @@ import javax.naming.NamingException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
+import tn.esprit.medicaltourism.client.Hotel_List_GUI;
 import tn.esprit.medicaltourism.domain.User;
 import tn.esprit.medicaltourism.initDB.InitdbRemote;
 
 import com.alee.laf.WebLookAndFeel;
+
 import javax.swing.JLabel;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
@@ -75,7 +77,7 @@ public class Connection extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				login_btn.setIcon(new ImageIcon("C:\\Users\\firasniper\\Desktop\\Blue Button.png"));
 				User found = initdbRemote.authentificate(Tf_pseudo.getText(), String.valueOf(Tf_Mdp.getPassword()));
-				System.out.println("hhhhhhhhhhhhhhh");
+			
 			if (found == null) {
 				System.out.println("bad credentials!");
 									
@@ -106,6 +108,9 @@ public class Connection extends JFrame {
 //				}
 //				dispose();
 				System.out.println("OK");
+				Hotel_List_GUI  hotel_List_GUI=new Hotel_List_GUI() ;
+				hotel_List_GUI.setVisible(true);
+				dispose();
 			}
 			
 		}
