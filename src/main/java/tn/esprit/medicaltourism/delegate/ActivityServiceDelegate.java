@@ -17,29 +17,33 @@ public class ActivityServiceDelegate {
 		return (ActivityServiceRemote) ServiceLocator.getInstance().getProxy(jndiName);
 	}
 	
-	public Activity create(Activity activity) {
+	public static Activity create(Activity activity) {
 		return getProxy().create(activity);
 	}
 
-	public void update(Activity activity) {
+	public static void update(Activity activity) {
 		 getProxy().update(activity);
 	}
 
-	public void delete(Integer id) {
+	public static  void delete(Integer id) {
 		 getProxy().delete(id);
 	}
 
-	public Activity find(Integer id) {
+	public  static Activity find(Integer id) {
 		return getProxy().find(id);
 	}
 
-	public Activity findByName(String name) {
+	public static  Activity findByName(String name) {
 		return getProxy().findByName(name);
 	}
 
-	public List<Activity> findAll() {
+	public static  List<Activity> findAll() {
 		return getProxy().findAll();
 	}
+	public static  void delete(Activity activity) {
+		 getProxy().delete( activity);
+	}
+
 	
 
 	

@@ -39,10 +39,12 @@ public class Backoffice extends JFrame {
 	private JPanel Acceuil;
 	private JMenuBar menuBar;
 	private JMenu menu;
-	private JMenuItem menuItem;
+	private JMenuItem mntmAddHotel;
 	private JMenuItem mntmHotelList;
 	private JPanel panel;
 	private JScrollPane scrollPane;
+	private JMenu mnManagesServices;
+	private JMenuItem mntmServicesList;
 
 
 	/**
@@ -89,10 +91,10 @@ public class Backoffice extends JFrame {
 					gl_Acceuil.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_Acceuil.createSequentialGroup()
 							.addContainerGap()
-							.addGroup(gl_Acceuil.createParallelGroup(Alignment.TRAILING)
-								.addComponent(panel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(menuBar, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 1228, GroupLayout.PREFERRED_SIZE))
-							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addGroup(gl_Acceuil.createParallelGroup(Alignment.LEADING)
+								.addComponent(menuBar, GroupLayout.PREFERRED_SIZE, 1228, GroupLayout.PREFERRED_SIZE)
+								.addComponent(panel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addContainerGap())
 				);
 				gl_Acceuil.setVerticalGroup(
 					gl_Acceuil.createParallelGroup(Alignment.LEADING)
@@ -125,14 +127,14 @@ public class Backoffice extends JFrame {
 				menu = new JMenu("manage hotels");
 				menuBar.add(menu);
 				
-				menuItem = new JMenuItem("add hotel");
-				menuItem.addActionListener(new ActionListener() {
+				mntmAddHotel = new JMenuItem("Add hotel");
+				mntmAddHotel.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 					scrollPane.setViewportView(new Hotel_add_GUI());
 					}
 				});
 				
-				mntmHotelList = new JMenuItem("hotel list");
+				mntmHotelList = new JMenuItem("Hotel list");
 				mntmHotelList.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						scrollPane.setViewportView(new Hotel_list_GUI());
@@ -141,12 +143,23 @@ public class Backoffice extends JFrame {
 					}
 				});
 				menu.add(mntmHotelList);
-				menu.add(menuItem);
+				menu.add(mntmAddHotel);
+				
+				mnManagesServices = new JMenu("manages services");
+				menuBar.add(mnManagesServices);
+				
+				mntmServicesList = new JMenuItem("Services list");
+				mntmServicesList.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						scrollPane.setViewportView(new Activities_list_GUI());
+					}
+				});
+				mnManagesServices.add(mntmServicesList);
 				Acceuil.setLayout(gl_Acceuil);
 				
 				JLabel bg = new JLabel("New label");
 				contentPane.add(bg, BorderLayout.SOUTH);
-				bg.setIcon(new ImageIcon("C:\\Users\\firasniper\\Documents\\128011.jpg"));
+				bg.setIcon(new ImageIcon("C:\\Users\\firasniper\\Documents\\1280111.jpg"));
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
