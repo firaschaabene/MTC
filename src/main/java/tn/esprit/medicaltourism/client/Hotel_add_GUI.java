@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -48,12 +49,22 @@ public class Hotel_add_GUI extends JPanel {
 					tf_adress.setText("");
 					ta_brief.setText("");
 					cmb_stars.setSelectedIndex(0);
+					JOptionPane.showMessageDialog(null, "the operation made with success");
 				}
 			}
 		});
 		btn_ok.setFont(new Font("Segoe Print", Font.PLAIN, 16));
 		
 		JButton btn_cancel = new JButton("Cancel");
+		btn_cancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tf_adress.setText("");
+				tf_name.setText("");
+				ta_brief.setText("");
+				cmb_stars.setSelectedIndex(0);
+				
+			}
+		});
 		btn_cancel.setFont(new Font("Segoe Print", Font.PLAIN, 16));
 		
 		JLabel lblName = new JLabel("Name");

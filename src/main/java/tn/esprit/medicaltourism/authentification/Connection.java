@@ -7,18 +7,17 @@ import java.awt.event.MouseEvent;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
-import tn.esprit.medicaltourism.client.Hotel_List_GUI;
+import tn.esprit.medicaltourism.client.Backoffice;
 import tn.esprit.medicaltourism.domain.User;
 import tn.esprit.medicaltourism.initDB.InitdbRemote;
 
 import com.alee.laf.WebLookAndFeel;
-
-import javax.swing.JLabel;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout;
 
 
 
@@ -106,11 +105,11 @@ public class Connection extends JFrame {
 //						}
 //					});
 //				}
-//				dispose();
+			dispose();
 				System.out.println("OK");
-				Hotel_List_GUI  hotel_List_GUI=new Hotel_List_GUI() ;
-				hotel_List_GUI.setVisible(true);
-				dispose();
+				Backoffice  backoffice=new Backoffice() ;
+				backoffice.setVisible(true);
+				
 			}
 			
 		}
