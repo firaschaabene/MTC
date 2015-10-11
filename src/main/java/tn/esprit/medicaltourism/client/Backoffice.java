@@ -28,6 +28,10 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Font;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class Backoffice extends JFrame {
 
@@ -37,6 +41,8 @@ public class Backoffice extends JFrame {
 	private JMenu menu;
 	private JMenuItem menuItem;
 	private JMenuItem mntmHotelList;
+	private JPanel panel;
+	private JScrollPane scrollPane;
 
 
 	/**
@@ -57,11 +63,10 @@ public class Backoffice extends JFrame {
 
 	public Backoffice() {
 		initComponents();
-		
+		scrollPane.setViewportView(new Hotel_list_GUI());
 	}
 
 	private void initComponents() {
-		Hotel_list_GUI hotel_Pane=new  Hotel_list_GUI();
 		// this.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				setBounds(100, 100, 1280, 720);
@@ -77,17 +82,16 @@ public class Backoffice extends JFrame {
 				menuBar = new JMenuBar();
 				menuBar.setFont(new Font("Segoe UI", Font.BOLD, 15));
 				
-				JScrollPane scrollPane = new JScrollPane();
-//				scrollPane.setBackground(new Color(0, 0, 0, 25));
-				scrollPane.setViewportView(hotel_Pane);
+				panel = new JPanel();
+				
 				GroupLayout gl_Acceuil = new GroupLayout(Acceuil);
 				gl_Acceuil.setHorizontalGroup(
 					gl_Acceuil.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_Acceuil.createSequentialGroup()
 							.addContainerGap()
-							.addGroup(gl_Acceuil.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(scrollPane, Alignment.LEADING)
-								.addComponent(menuBar, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 1228, Short.MAX_VALUE))
+							.addGroup(gl_Acceuil.createParallelGroup(Alignment.TRAILING)
+								.addComponent(panel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(menuBar, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 1228, GroupLayout.PREFERRED_SIZE))
 							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 				);
 				gl_Acceuil.setVerticalGroup(
@@ -96,9 +100,27 @@ public class Backoffice extends JFrame {
 							.addContainerGap()
 							.addComponent(menuBar, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
 							.addGap(18)
-							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 353, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap(220, Short.MAX_VALUE))
+							.addComponent(panel, GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+							.addContainerGap())
 				);
+				
+				scrollPane = new JScrollPane();
+				GroupLayout gl_panel = new GroupLayout(panel);
+				gl_panel.setHorizontalGroup(
+					gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1204, Short.MAX_VALUE)
+							.addContainerGap())
+				);
+				gl_panel.setVerticalGroup(
+					gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(5)
+							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+							.addContainerGap())
+				);
+				panel.setLayout(gl_panel);
 				
 				menu = new JMenu("manage hotels");
 				menuBar.add(menu);
@@ -107,7 +129,6 @@ public class Backoffice extends JFrame {
 				menuItem.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 					scrollPane.setViewportView(new Hotel_add_GUI());
-						
 					}
 				});
 				
@@ -115,6 +136,8 @@ public class Backoffice extends JFrame {
 				mntmHotelList.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						scrollPane.setViewportView(new Hotel_list_GUI());
+						
+						
 					}
 				});
 				menu.add(mntmHotelList);
