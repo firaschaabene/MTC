@@ -157,7 +157,12 @@ public class Activities_list_GUI extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				activity.setName(tf_name.getText());
 //				activity.setAddress(tf_adress.getText());
-
+				 java.util.Date utilDate = startdateChooser.getDate();
+				 java.sql.Date sqlDateS = new java.sql.Date(utilDate.getTime());
+				activity.setStartDate(sqlDateS+"");
+				java.util.Date utilDate1 = enddateChooser.getDate();
+				 java.sql.Date sqlDateE = new java.sql.Date(utilDate1.getTime());
+				activity.setEndDate(sqlDateE+"");
 				activity.setDescription(ta_desc.getText());
 				ActivityServiceDelegate.update(activity);
 				JOptionPane.showMessageDialog(null, "updated successfuly !");
@@ -184,12 +189,7 @@ public class Activities_list_GUI extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				
 				activity.setName(tf_name.getText());
-				 java.util.Date utilDate = startdateChooser.getDate();
-				 java.sql.Date sqlDateS = new java.sql.Date(utilDate.getDate());
-				activity.setStartDate(sqlDateS);
-				java.util.Date utilDate1 = enddateChooser.getDate();
-				 java.sql.Date sqlDateE = new java.sql.Date(utilDate1.getDate());
-				activity.setEndDate(sqlDateE);
+			
 //				activity.setAddress(tf_adress.getText());
 //				activity.setStar(Integer.parseInt(cmb_stars.getSelectedItem().toString()));
 				activity.setDescription(ta_desc.getText());
@@ -211,6 +211,7 @@ public class Activities_list_GUI extends JPanel {
 		 startdateChooser.setDateFormatString("yyyy-MM-dd");
 		
 		 enddateChooser = new JDateChooser();
+		 enddateChooser.setDateFormatString("yyyy-MM-dd");
 		GroupLayout gl_panel_update = new GroupLayout(panel_update);
 		gl_panel_update.setHorizontalGroup(
 			gl_panel_update.createParallelGroup(Alignment.LEADING)
