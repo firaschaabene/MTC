@@ -150,6 +150,37 @@ public class Backoffice extends JFrame {
 				menuBar.add(mnPacks);
 				
 				menuBar.add(mnDashboard);
+				
+				JMenu mn_users = new JMenu("user managment");
+				menuBar.add(mn_users);
+				
+				JMenuItem mntmNewMenuItem = new JMenuItem("consultants");
+				mntmNewMenuItem.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						scrollPane.setViewportView(new PatientsUIBding());
+					}
+				});
+				mn_users.add(mntmNewMenuItem);
+				
+				JMenuItem mntmNewMenuItem_1 = new JMenuItem("Doctors");
+				mntmNewMenuItem_1.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						scrollPane.setViewportView(new doctors_list_GUI());
+						
+					}
+				});
+				mn_users.add(mntmNewMenuItem_1);
+				
+				JMenuItem mntmPatients = new JMenuItem("patients");
+				mntmPatients.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						scrollPane.setViewportView(new PatientsUIBding());
+						
+					}
+				});
+				mn_users.add(mntmPatients);
 				bg.setBounds(5, 0, 1340, 720);
 		
 		contentPane.add(bg);
