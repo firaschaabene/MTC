@@ -68,7 +68,7 @@ public class Connection extends JFrame {
 		setResizable(false);
 		login_btn = new javax.swing.JLabel();
 		login_btn.setBounds(245, 403, 148, 42);
-		login_btn.setIcon(new ImageIcon("C:\\Users\\firasniper\\Desktop\\Blue Button.png"));
+		login_btn.setIcon(new ImageIcon(Connection.class.getResource("/edu/esprit/medicaltourism/images/images/Blue Button.png")));
 		login_btn.setBackground(Color.BLUE);
 		login_btn.addMouseListener(new MouseAdapter() {
 			@Override

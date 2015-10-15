@@ -38,6 +38,7 @@ public class Backoffice extends JFrame {
 	private JMenu mnDashboard;
 	private JMenu mnPacks;
 	JLabel bg = new JLabel("New label");
+	private JMenu mnNewMenu;
 
 
 	/**
@@ -181,6 +182,22 @@ public class Backoffice extends JFrame {
 					}
 				});
 				mn_users.add(mntmPatients);
+				
+				mnNewMenu = new JMenu("medical records");
+				mnNewMenu.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						
+						scrollPane.setViewportView(new RechercheDossierMedicalPanl());
+					}
+				});
+				mnNewMenu.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						
+					}
+				});
+				menuBar.add(mnNewMenu);
 				bg.setBounds(5, 0, 1340, 720);
 		
 		contentPane.add(bg);
