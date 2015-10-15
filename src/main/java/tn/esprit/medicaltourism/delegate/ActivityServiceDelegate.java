@@ -3,6 +3,7 @@ package tn.esprit.medicaltourism.delegate;
 import java.util.List;
 
 import tn.esprit.medicaltourism.domain.Activity;
+import tn.esprit.medicaltourism.domain.Hotel;
 import tn.esprit.medicaltourism.locator.ServiceLocator;
 import tn.esprit.medicaltourism.services.ActivityServiceRemote;
 import tn.esprit.medicaltourism.services.HotelServiceRemote;
@@ -44,7 +45,9 @@ public class ActivityServiceDelegate {
 		 getProxy().delete( activity);
 	}
 
-	
+	public static  List<Activity> findByhotel(Hotel hotel) {
+		return getProxy().findByhotel(hotel);
+	}
 
 	
 

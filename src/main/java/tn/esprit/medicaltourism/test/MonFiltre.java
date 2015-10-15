@@ -1,4 +1,4 @@
-package tn.esprit.medicaltourism.client;
+package tn.esprit.medicaltourism.test;
 
 import java.io.File;
 import javax.swing.filechooser.FileFilter;
