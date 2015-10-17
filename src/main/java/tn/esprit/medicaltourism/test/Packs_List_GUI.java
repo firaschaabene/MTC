@@ -12,6 +12,7 @@ import tn.esprit.medicaltourism.domain.Pack;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class Packs_List_GUI extends JPanel {
 
@@ -19,17 +20,17 @@ public class Packs_List_GUI extends JPanel {
 	 * Create the panel.
 	 */
 	public Packs_List_GUI() {
-		setLayout(null);
+		setBackground(Color.WHITE);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 5, 450, 295);
-		panel.setBackground(new Color(0, 0, 0, 0)); 
+		panel.setBackground(Color.WHITE); 
 		
 		panel.setForeground(new java.awt.Color(153, 0, 2));
 		panel.setOpaque(false);
-		add(panel);
 		
-		JLabel lbl_pack_classic = new JLabel("New label");
+		JLabel lbl_pack_classic = new JLabel("");
+		lbl_pack_classic.setBounds(83, 126, 652, 200);
+		lbl_pack_classic.setIcon(new ImageIcon(Packs_List_GUI.class.getResource("/edu/esprit/medicaltourism/images/images/classic.png")));
 		lbl_pack_classic.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -41,7 +42,9 @@ public class Packs_List_GUI extends JPanel {
 			}
 		});
 		
-		JLabel lbl_pack_confort = new JLabel("New label");
+		JLabel lbl_pack_confort = new JLabel("");
+		lbl_pack_confort.setIcon(new ImageIcon(Packs_List_GUI.class.getResource("/edu/esprit/medicaltourism/images/images/comfort.png")));
+		lbl_pack_confort.setBounds(85, 371, 650, 215);
 		lbl_pack_confort.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -52,7 +55,9 @@ public class Packs_List_GUI extends JPanel {
 			}
 		});
 		
-		JLabel lbl_pack_confort_plus = new JLabel("New label");
+		JLabel lbl_pack_confort_plus = new JLabel("");
+		lbl_pack_confort_plus.setIcon(new ImageIcon(Packs_List_GUI.class.getResource("/edu/esprit/medicaltourism/images/images/comfortplus.png")));
+		lbl_pack_confort_plus.setBounds(61, 612, 650, 191);
 		lbl_pack_confort_plus.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -62,29 +67,25 @@ public class Packs_List_GUI extends JPanel {
 				pack_update_GUI.show();
 			}
 		});
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(42)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(lbl_pack_confort_plus)
-						.addComponent(lbl_pack_confort)
-						.addComponent(lbl_pack_classic))
-					.addContainerGap(352, Short.MAX_VALUE))
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 988, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(31, Short.MAX_VALUE))
 		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(61)
-					.addComponent(lbl_pack_classic)
-					.addGap(61)
-					.addComponent(lbl_pack_confort)
-					.addPreferredGap(ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-					.addComponent(lbl_pack_confort_plus)
-					.addGap(47))
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(5)
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 816, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
-		panel.setLayout(gl_panel);
+		panel.setLayout(null);
+		panel.add(lbl_pack_confort_plus);
+		panel.add(lbl_pack_confort);
+		panel.add(lbl_pack_classic);
+		setLayout(groupLayout);
 
 	}
 }

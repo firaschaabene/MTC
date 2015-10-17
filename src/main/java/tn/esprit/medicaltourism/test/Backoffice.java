@@ -23,6 +23,9 @@ import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
+import com.alee.laf.WebLookAndFeel;
+import java.awt.SystemColor;
+
 public class Backoffice extends JFrame {
 
 	private JPanel contentPane;
@@ -47,6 +50,7 @@ public class Backoffice extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				WebLookAndFeel.install();
 				try {
 					Backoffice frame = new Backoffice();
 					frame.setVisible(true);
@@ -83,8 +87,9 @@ public class Backoffice extends JFrame {
 				
 				
 				menu = new JMenu("manage hotels");
+				menu.setFont(new Font("Segoe UI", Font.BOLD, 16));
 				menu.setBackground(new Color(0, 0, 0, 0));
-				menu.setForeground(new java.awt.Color(153, 0, 2));
+				menu.setForeground(SystemColor.textHighlight);
 
 				menu.setOpaque(false);
 				menuBar.add(menu);
@@ -119,6 +124,8 @@ public class Backoffice extends JFrame {
 				menu.add(mntmAddServices);
 				
 				mnManagesActivities = new JMenu("manages activities");
+				mnManagesActivities.setForeground(SystemColor.textHighlight);
+				mnManagesActivities.setFont(new Font("Segoe UI", Font.BOLD, 16));
 				menuBar.add(mnManagesActivities);
 				
 				mntmActivityList = new JMenuItem("Activities list");
@@ -132,6 +139,8 @@ public class Backoffice extends JFrame {
 				mnManagesActivities.add(mntmActivityList);
 				
 				mnDashboard = new JMenu("Dashboard");
+				mnDashboard.setForeground(SystemColor.textHighlight);
+				mnDashboard.setFont(new Font("Segoe UI", Font.BOLD, 16));
 				mnDashboard.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
@@ -141,6 +150,8 @@ public class Backoffice extends JFrame {
 				});
 				
 				mnPacks = new JMenu("Packs");
+				mnPacks.setForeground(SystemColor.textHighlight);
+				mnPacks.setFont(new Font("Segoe UI", Font.BOLD, 16));
 				mnPacks.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
@@ -153,6 +164,8 @@ public class Backoffice extends JFrame {
 				menuBar.add(mnDashboard);
 				
 				JMenu mn_users = new JMenu("user managment");
+				mn_users.setForeground(SystemColor.textHighlight);
+				mn_users.setFont(new Font("Segoe UI", Font.BOLD, 16));
 				menuBar.add(mn_users);
 				
 				JMenuItem mntmNewMenuItem = new JMenuItem("consultants");
@@ -184,6 +197,8 @@ public class Backoffice extends JFrame {
 				mn_users.add(mntmPatients);
 				
 				mnNewMenu = new JMenu("medical records");
+				mnNewMenu.setForeground(SystemColor.textHighlight);
+				mnNewMenu.setFont(new Font("Segoe UI", Font.BOLD, 16));
 				mnNewMenu.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {

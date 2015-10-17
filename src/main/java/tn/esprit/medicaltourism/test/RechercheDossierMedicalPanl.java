@@ -102,8 +102,9 @@ public class RechercheDossierMedicalPanl extends JPanel {
 DefaultTableModel model_table = (DefaultTableModel) table.getModel();
 				
 				int id = (int) model_table.getValueAt(table.getSelectedRow(), 0);
-				p=PatientServiceDelegate.findPatient(id);
-				
+			p=PatientServiceDelegate.findPatient(id);
+//			    p=	lp.get(table.getSelectedRow());
+	        	System.out.println(p);
 				int id1 = (int) model_table.getValueAt(table.getSelectedRow(), 4);
 				mr=MedicalRecordsServiceDelegate.find(id1);
 				lmsg.setText("");
@@ -132,7 +133,7 @@ DefaultTableModel model_table = (DefaultTableModel) table.getModel();
 			            	lmsg.setText("You should select a Patient");
 			            }
 			        } else {
-			        	p=table.get
+			    
 			        	ConsulterDossierMedicalFram panl = new ConsulterDossierMedicalFram(p,mr);
 						panl.setVisible(true);
 			        }

@@ -23,7 +23,7 @@ import com.alee.laf.WebLookAndFeel;
 public class Connection extends JFrame {
 	
 
-	private java.sql.Connection connection;
+	
 	private InitdbRemote initdbRemote;
 	
 
@@ -66,21 +66,36 @@ public class Connection extends JFrame {
 		setMinimumSize(new java.awt.Dimension(258, 420));
 		setName("b"); // NOI18N
 		setResizable(false);
-		login_btn = new javax.swing.JLabel();
-		login_btn.setBounds(245, 403, 148, 42);
-		login_btn.setIcon(new ImageIcon(Connection.class.getResource("/edu/esprit/medicaltourism/images/images/Blue Button.png")));
-		login_btn.setBackground(Color.BLUE);
-		login_btn.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				login_btn.setIcon(new ImageIcon("C:\\Users\\firasniper\\Desktop\\Blue Button.png"));
-				User found = initdbRemote.authentificate(Tf_pseudo.getText(), String.valueOf(Tf_Mdp.getPassword()));
-			
-			if (found == null) {
-				System.out.println("bad credentials!");
-									
-			}else{
+				jPanel1.setLayout(null);
 				
+				admin_lb = new JLabel("admin_label");
+				admin_lb.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						admin_lb.setIcon(new ImageIcon(Connection.class.getResource("/edu/esprit/medicaltourism/images/images/admin pressed.png")));
+					}
+					@Override
+					public void mouseExited(MouseEvent e) {
+						
+						admin_lb.setIcon(new ImageIcon(Connection.class.getResource("/edu/esprit/medicaltourism/images/images/admin.png")));
+
+					}
+				});
+				login_btn = new javax.swing.JLabel();
+				login_btn.setBounds(245, 403, 148, 42);
+				login_btn.setIcon(new ImageIcon(Connection.class.getResource("/edu/esprit/medicaltourism/images/images/Blue Button.png")));
+				login_btn.setBackground(Color.BLUE);
+				login_btn.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						login_btn.setIcon(new ImageIcon(Connection.class.getResource("/edu/esprit/medicaltourism/images/images/Blue Button.png")));
+						User found = initdbRemote.authentificate(Tf_pseudo.getText(), String.valueOf(Tf_Mdp.getPassword()));
+					
+					if (found == null) {
+						System.out.println("bad credentials!");
+											
+					}else{
+						
 //				if(found instanceof Admin){
 //					EventQueue.invokeLater(new Runnable() {
 //						public void run() {
@@ -104,41 +119,32 @@ public class Connection extends JFrame {
 //						}
 //					});
 //				}
-			dispose();
-				System.out.println("OK");
-				Backoffice  backoffice=new Backoffice() ;
-				backoffice.setVisible(true);
-				
-			}
-			
-		}
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				ImageIcon button_hover = new ImageIcon("C:\\Users\\firasniper\\Desktop\\hover.png");
-				login_btn.setIcon(button_hover);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				ImageIcon button_hover = new ImageIcon("C:\\Users\\firasniper\\Desktop\\Blue Button.png");
-				login_btn.setIcon(button_hover);
-				
-			}
-		});
-				jPanel1.setLayout(null);
-				
-				admin_lb = new JLabel("admin_label");
-				admin_lb.addMouseListener(new MouseAdapter() {
+					dispose();
+						System.out.println("OK");
+						Backoffice  backoffice=new Backoffice() ;
+						backoffice.setVisible(true);
+						
+					}
+					
+				}
 					@Override
 					public void mouseEntered(MouseEvent e) {
-						admin_lb.setIcon(new ImageIcon(Connection.class.getResource("/edu/esprit/medicaltourism/images/images/admin pressed.png")));
+						ImageIcon button_hover = new ImageIcon(Connection.class.getResource("/edu/esprit/medicaltourism/images/images/hover.png"));
+						login_btn.setIcon(button_hover);
 					}
 					@Override
 					public void mouseExited(MouseEvent e) {
+						ImageIcon button_hover = new ImageIcon(Connection.class.getResource("/edu/esprit/medicaltourism/images/images/Blue Button.png"));
+						login_btn.setIcon(button_hover);
 						
-						admin_lb.setIcon(new ImageIcon(Connection.class.getResource("/edu/esprit/medicaltourism/images/images/admin.png")));
-
 					}
 				});
+				
+//				signup.setIcon(new javax.swing.ImageIcon(getClass().getResource(
+//						"/dao/gui/images/image (1).png"))); // NOI18N
+						login_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+						
+										jPanel1.add(login_btn);
 				admin_lb.setIcon(new ImageIcon(Connection.class.getResource("/edu/esprit/medicaltourism/images/images/admin.png")));
 				admin_lb.setBounds(415, 484, 102, 105);
 				jPanel1.add(admin_lb);
@@ -207,16 +213,10 @@ public class Connection extends JFrame {
 						jLabel3.setForeground(new java.awt.Color(255, 255, 255));
 						jLabel3.setText("Password :");
 						jPanel1.add(jLabel3);
-		
-//				signup.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-//						"/dao/gui/images/image (1).png"))); // NOI18N
-				login_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 				client_lb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 				admin_lb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 				consultant_lb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 				doctor_lb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-				jPanel1.add(login_btn);
 
 		Tf_pseudo.setFont(new java.awt.Font("MV Boli", 0, 12)); // NOI18N
 		Tf_pseudo.setText("root");

@@ -24,6 +24,7 @@ import org.jdesktop.swingbinding.JTableBinding;
 import org.jdesktop.swingbinding.SwingBindings;
 
 import tn.esprit.medicaltourism.delegate.DoctorServiceDelegate;
+import tn.esprit.medicaltourism.delegate.HotelServiceDelegate;
 import tn.esprit.medicaltourism.domain.Doctor;
 import tn.esprit.medicaltourism.domain.Hotel;
 import tn.esprit.medicaltourism.mail.EmailSender;
@@ -33,6 +34,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.JScrollPane;
 
 
@@ -238,6 +240,7 @@ public class doctors_list_GUI extends JPanel {
 		panel.add(scrollPane);
 		
 		tableDoctors = new JTable();
+		doctors=DoctorServiceDelegate.findAllDoctors();
 		scrollPane.setViewportView(tableDoctors);
 		setLayout(groupLayout);
 		initDataBindings();
