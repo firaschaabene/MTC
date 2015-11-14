@@ -27,15 +27,14 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
-import tn.esprit.medicaltourism.domain.Activity;
-import tn.esprit.medicaltourism.domain.Services_Hotel;
+import tn.esprit.medicaltourism.domain.Service_Hotel;
 
 public class Service_hotel_add_GUI extends JFrame {
 
 	private JPanel contentPane;
 	 JTextField tf_name_service_hotel;
 	JTextArea ta_brief__service_hotel;
-	public static Services_Hotel service_hotel;
+	public static Service_Hotel service_hotel;
 	public static 	tn.esprit.medicaltourism.domain.Image image_service_hotel=null;
 	/**
 	 * Launch the application.
@@ -57,7 +56,7 @@ public class Service_hotel_add_GUI extends JFrame {
 	 * Create the frame.
 	 */
 	public Service_hotel_add_GUI() {
-		service_hotel = new Services_Hotel();
+		service_hotel = new Service_Hotel();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 855, 449);
@@ -141,7 +140,7 @@ public class Service_hotel_add_GUI extends JFrame {
 							image_service_hotel.setUrl(url);
 							if(image_service_hotel!=null){
 							image_service_hotel.setService_hotel(service_hotel);
-							service_hotel.setPicture(image_service_hotel);
+							//service_hotel.setPicture(image_service_hotel);
 							}
 							
 						// Fermeture des flux

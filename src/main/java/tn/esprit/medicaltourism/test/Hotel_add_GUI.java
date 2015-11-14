@@ -86,7 +86,7 @@ public class Hotel_add_GUI extends JPanel {
 					image.setUrl(url);
 					image.setHotel(hotel);
 					System.out.println(image);
-					hotel.setPicture(image);
+					//hotel.setPicture(image);
 					HotelServiceDelegate.create(hotel);
 					
 					tf_name.setText("");

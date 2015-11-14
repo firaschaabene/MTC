@@ -228,7 +228,7 @@ public class Activities_list_GUI extends JPanel {
 				String url = ("http://localhost:18080/uploads/activity/"
 						+ tf_name.getText() + ".jpg");
 				image_activity.setUrl(url);
-				activity.setPicture(image_activity);
+			//	activity.setPicture(image_activity);
 				image_activity.setActivity(activity);
 				ActivityServiceDelegate.update(activity);
 				JOptionPane.showMessageDialog(null, "updated successfuly !");

@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -34,13 +36,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.RowFilter;
+import javax.swing.border.LineBorder;
 
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.view.JRViewer;
 import net.sf.jasperreports.view.JasperViewer;
 
 import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
@@ -48,27 +51,15 @@ import org.jdesktop.beansbinding.BeanProperty;
 import org.jdesktop.swingbinding.JTableBinding;
 import org.jdesktop.swingbinding.SwingBindings;
 
-import com.mysql.jdbc.Connection;
-
 import tn.esprit.medicaltourism.delegate.ActivityServiceDelegate;
 import tn.esprit.medicaltourism.delegate.HotelServiceDelegate;
 import tn.esprit.medicaltourism.delegate.ImageServiceDelegate;
 import tn.esprit.medicaltourism.delegate.ServicesOfHotelDelegate;
 import tn.esprit.medicaltourism.domain.Activity;
 import tn.esprit.medicaltourism.domain.Hotel;
-import tn.esprit.medicaltourism.domain.Services_Hotel;
+import tn.esprit.medicaltourism.domain.Service_Hotel;
 
-import javax.swing.LayoutStyle.ComponentPlacement;
-
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-
-import javax.swing.border.LineBorder;
-
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+import com.mysql.jdbc.Connection;
 
 public class Hotel_list_GUI extends JPanel {
 
@@ -114,11 +105,11 @@ public class Hotel_list_GUI extends JPanel {
 				tn.esprit.medicaltourism.domain.Image img=new tn.esprit.medicaltourism.domain.Image();
 				img=ImageServiceDelegate.findHotelImage(hotel);
 				System.out.println(img);
-				if(img!=null)
-					{ImageIcon photoicon = new ImageIcon(new ImageIcon(
-						hotel.getPicture().getUrl()).getImage().getScaledInstance(50,
-						50, Image.SCALE_AREA_AVERAGING));
-				lbl_picture.setIcon(photoicon);
+				if(img!=null){
+//					{ImageIcon photoicon = new ImageIcon(new ImageIcon(
+//						hotel.getPicture().getUrl()).getImage().getScaledInstance(50,
+//						50, Image.SCALE_AREA_AVERAGING));
+//				lbl_picture.setIcon(photoicon);
 				
 					}
 				else 
@@ -265,7 +256,7 @@ public class Hotel_list_GUI extends JPanel {
 			
 				if(Service_hotel_add_GUI.service_hotel!=null)
 				{Service_hotel_add_GUI.service_hotel.setHotel(hotel);
-					List<Services_Hotel> services = new ArrayList<Services_Hotel>();
+					List<Service_Hotel> services = new ArrayList<Service_Hotel>();
 					services=ServicesOfHotelDelegate.findByhotel(hotel);
 					services.add(Service_hotel_add_GUI.service_hotel);
 				hotel.setServices(services);
@@ -288,7 +279,7 @@ public class Hotel_list_GUI extends JPanel {
 					System.out.println(image_hotel);
 					System.out.println(hotel);
 					image_hotel.setHotel(hotel);
-				hotel.setPicture(image_hotel);
+				//hotel.setPicture(image_hotel);
 				}
 				HotelServiceDelegate.update(hotel);
 

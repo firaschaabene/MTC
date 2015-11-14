@@ -164,7 +164,7 @@ public class Activity_add_GUI extends JFrame {
 						image_activity.setUrl(url);
 						if(image_activity!=null)
 						{image_activity.setActivity(activity);
-						activity.setPicture(image_activity);
+						//activity.setPicture(image_activity);
 						}
 						// Fermeture des flux
 						in.close();
